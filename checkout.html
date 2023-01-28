@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FakeStore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to Fakestore</h1>
+    <br><br>
+        
+        <h2 id="cart">Shopping Cart</h2>
+        <img src="shoppingcart.png" alt="" id="shoppingimg">
+        <a href="index.html">Home page</a>
+        
+        <section id="varukorgen">
+          
+          
+        
+        </section>
+        
+    </section>
+        
+    <br>
+    <br>
+    <form id="checkout" onsubmit="addBuyer(); return false;">
+        <fieldset>
+            <legend>Check out</legend>
+            <br>
+        <label for="name">Enter your name</label> <br>
+        <input type="text" name="" id="buyername" required placeholder="Name">
+        <br> <br>
+        <label for="email">Email</label> <br>
+        <input type="email" name="email" id="email" required placeholder="Email">
+        <br><br>
+        <label for="shipping">Shipping option</label><br>
+        <select name="shipping" id="shipping" required>
+        <option value="" disabled selected>Shipping</option>
+        <option value="express">Express Shipping</option>
+        <option value="economy">Economy Shipping</option></select>
+        <br><br>
+    </fieldset>
+    <button type="submit" id="addbuyers" onsubmit="addBuyer()">Send order</button>
+
+    </form>
+            <br> <br></table>
+
+
+
+    <script src="fakestore.js"></script>
+</body>
+</html>

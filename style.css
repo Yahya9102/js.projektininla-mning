@@ -41,9 +41,6 @@ body {
 }
 
 
-.catergory,
-
-
 
 
 
@@ -53,18 +50,86 @@ body {
 
 #varukorgen{
     display: flex;
-    position: fixed;
-    right: 5%;
+    position: absolute;
+    right: 4%;
 }
 
 
 #cart{
     display: flex;
-    position: fixed;
+    position: absolute;
     right: 5%;
-    top: 2%;
+    top: 5%;
 }
 
 #baskettext{
+    display: flex;
+    position: relative;
     font-size: 60%;
 }
+
+fieldset{
+    width: fit-content;
+}
+
+#checkoutlink{
+    display: flex;
+    position: absolute;
+    right: 20%;
+    top: 5%;
+}
+
+#shoppingimg{
+    display: flex;
+    position: absolute;
+    right: 2.2%;
+    top: 11%;
+    width: 4%;
+}
+#shoppingimgI{
+    display: flex;
+    position: absolute;
+    right: 2.2%;
+    top: 8%;
+    width: 4%;
+}
+
+p {
+    word-wrap: break-word;
+     max-width: 40ch;
+   }
+@media screen and (max-width: 800px) {
+   
+    #shoppingimg{
+        display: flex;
+        position: relative;
+        left: 91%;
+        top: 2.5rem;
+        width: 9%;
+    }
+    #shoppingimgI{
+        display: flex;
+        position: relative;
+        left: 91%;
+        top: 1.5rem;
+        width: 9%;
+    }
+    
+    #checkoutlink{
+        display: flex;
+        position: absolute;
+        right: 50%;
+        top: 5%;
+    }
+    
+    #baskettext{
+        display: flex;
+        position: relative;
+        font-size: 60%;
+    }
+
+   p {
+    word-wrap: break-word;
+     max-width: 19ch;
+   }
+  }
