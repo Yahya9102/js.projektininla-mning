@@ -1,126 +1,133 @@
- "use strict;"
-
-
-// const programEL = document.getElementById("program");
+"use strict";
 
 
 
+let varukorgenEL = document.getElementById("showitems");
 
-// fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
-// .then(result => result.json())
-// .then(data => printJson(data));
+const nameEL = document.getElementById("buyername");
+const emailEL = document.getElementById("email");
+const addressEL = document.getElementById("address");
+const shippingEL = document.getElementById("shipping");
+
+
+const sendbuyersEL = document.getElementById("addbuyers");
 
 
 
-// let myItems = []; // lagra id´n här
 
-// function printJson(data) {
-  
+let myItems = []; // lagra id´n här
 
-//     console.log(data)
-//     const program = data.documents;
+
+
+
+
+
+
+function addItems(id, title, price) {
+    myItems.push({ id: id, title: title, price: price }); //lägga till items i arrayen
+    sessionStorage.setItem("myItems", JSON.stringify(myItems)); //Lagra myItems array i en session storage
+    renderCart(myItems); //Rendera den uppdaterade varukorgen
+}
+
+function removeItem(index) {
+    myItems.splice(index, 1); //Ta bort en produkt från myItems array via index
+    sessionStorage.setItem("myItems", JSON.stringify(myItems)); //Lagra dom uppdaterade produkterna i en session storage
+    renderCart(myItems); 
+}
+
+function renderCart(items) {
+    const varukorgenEL = document.getElementById("varukorgen");
+    varukorgenEL.innerHTML = ''; 
+    varukorgenEL.innerHTML = '<ul id="itemsList"></ul> <p id="total"></p>'; //Lägger till ett nytt UL lista och ett p element för total pris
+    const itemsListEL = document.getElementById("itemsList"); 
+    for (let i = 0; i < items.length; i++) {
+        itemsListEL.innerHTML += `<li> <p style="word-wrap: break-word; max-width: 20ch;" id="baskettext"> ${items[i].title} - <br> <p> <strong>Price:   ${items[i].price} kr  </p> <br>
+        <button onclick="removeItem(${i})" id="remove">Remove</button> </li>` //Loopar genom arrayen och lägg till varje produkt till itemslist elementet, och lägger till ta bort knapp
+    }
+    const totalPrice = items.reduce((acc, item) => acc + parseFloat(item.price), 0); //Räkna ut totalpris för allt
+    document.getElementById("total").innerHTML = `Total: ${totalPrice.toFixed(2)} kr &nbsp &nbsp &nbsp  ${myItems.length}`; //uppdatera totalpriset och antal items i varukorgen, konstiga tecken för mellanslap
     
-   
-//     for (let i = 0; i < program.length; i++) {
-//         programEL.innerHTML += `<table>
-//         <th id='th' style="word-wrap: break-word; max-width: 20ch;"> <strong> ${program[i].name } </strong> </th>
-//         <tr> <td>  ${program[i].fields.productids } </td></tr>
-//         <tr> ${program[i].fields.email} </tr> </p>
-//         <br> <br> <br> </table>`
-//     }
-   
-// };
-
-
-// const programEL = document.getElementById("program");
-
-// fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
-//   .then(result => result.json())
-//   .then(data => {
-//     const documents = data.documents;
-//     let html = "";
-
-//     for (let i = 0; i < documents.length; i++) {
-//       const fields = documents[i].fields;
-//       const email = fields.email.stringValue;
-//       const name = fields.name.stringValue;
-      
-//       html += `
-//         <table>
-//           <th id='th' style="word-wrap: break-word; max-width: 20ch;">
-//             <strong>${name}</strong>
-//           </th>
-//           <tr>
-//             <td>
-//               <strong>Email:</strong> ${email}
-//             </td>
-//           </tr>
-//         </table>
-//         <br><br><br>
-//       `;
-//     }
-
-//     programEL.innerHTML = html;
-//   });
-
-
-const programEL = document.getElementById("program");
-const editFormEL = document.getElementById("editForm");
-
-fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
-  .then(result => result.json())
-  .then(data => printJson(data));
-
-let selectedDocument = "";
-
-function printJson(data) {
-  const documents = data.documents;
-  
-  for (let i = 0; i < documents.length; i++) {
-    programEL.innerHTML += `
-      <table>
-        <th id='th' style="word-wrap: break-word; max-width: 20ch;"> 
-          <strong> ${documents[i].fields.name.stringValue} </strong> 
-        </th>
-        <tr> 
-          <td> 
-            <strong>Email:</strong> ${documents[i].fields.email.stringValue} 
-          </td>
-        </tr>
-        <tr> 
-          <td> 
-            <strong>Product IDs:</strong> 
-            ${documents[i].fields.productids.arrayValue.values
-              .map(value => value.stringValue)
-              .join(", ")}
-          </td>
-        </tr>
-        <button onclick="editOrder('${documents[i].name}')">Edit</button>
-        <button onclick="removeOrder('${documents[i].name}')">Remove</button>
-      </table>
-      <br> <br>
-    `;
-  }
 }
-
-function editOrder(documentName) {
-  selectedDocument = documentName;
-  editFormEL.style.display = "block";
+const savedItems = JSON.parse(sessionStorage.getItem("myItems")); //hämtar items från sessionstorage
+if (savedItems) {
+    myItems = savedItems;
 }
+renderCart(myItems);
 
-function removeOrder(documentName) {
-  if (confirm("Are you sure you want to remove this order?")) {
-    fetch(`https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/${documentName}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json"
-      }
+
+
+
+
+
+
+
+function addBuyer(event) {
+    event.preventDefault();
+
+ 
+
+    const name = nameEL.value.trim();
+    const email = emailEL.value.trim();
+    const address = addressEL.value.trim();
+    const shipping = shippingEL.value.trim();
+
+    if(!name || !email || !address || !shipping) {
+        console.log("Name, Email, Address or Shipping is missing");
+        return;
+    }
+
+    const productids = myItems.map(item => {
+        return { "stringValue": item.id }
+    });
+
+    const data = {
+        "fields": {
+            "name": {
+                "stringValue": name
+            },
+            "email": {
+                "stringValue": email
+            },
+            "address": {
+                "stringValue": address
+            },
+            "shipping": {
+                "stringValue": shipping
+            },
+            "productids": {
+                "arrayValue": {
+                    "values": productids
+                }
+            }
+
+        }
+    }
+
+    sessionStorage.removeItem("myItems");
+
+    fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
     })
-      .then(() => location.reload())
-      .catch(error => console.error(error));
-  }
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        location.reload();
+    })
+    .catch(error => console.log(error));
 }
 
-function submitEdit() {
-  const editNameEL = document.getElementById
-}
+
+
+sendbuyersEL.addEventListener("click", addBuyer);
+
+
+
+
+
+
+
+

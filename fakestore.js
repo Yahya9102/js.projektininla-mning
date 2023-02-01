@@ -15,7 +15,6 @@ const sendbuyersEL = document.getElementById("addbuyers");
 
 
 
-console.log(emailEL, nameEL)
 
 fetch("https://fakestoreapi.com/products")
 .then(result => result.json())
@@ -85,8 +84,6 @@ renderCart(myItems);
 
 
 
-
-
 function addBuyer(event) {
     event.preventDefault();
 
@@ -147,8 +144,6 @@ function addBuyer(event) {
 }
 
 
-
-sendbuyersEL.addEventListener("click", addBuyer);
 
 
 
