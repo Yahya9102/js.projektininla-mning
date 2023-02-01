@@ -15,7 +15,7 @@ body {
 }
 
 .heading {
-
+   
     text-align: center;
     font-size: 3rem;
     margin-bottom: 1.5rem;
@@ -39,9 +39,6 @@ body {
     font-size: 1.3rem;
 
 }
-
-
-
 
 
 #th{
@@ -104,7 +101,7 @@ p {
         display: flex;
         position: relative;
         left: 91%;
-        top: 2.5rem;
+        top: 2.6rem;
         width: 9%;
     }
     #shoppingimgI{

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>All orders</h1>
+    <table id="program">
+        <!-- Data will be added here -->
+      </table>
+      
+     
+       
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeEditModal()">&times;</span>
+          <h2>Edit Order</h2>
+          <form>
+            <label for="editName">Enter your name</label>
+            <br>
+            <input type="text" id="editName" required placeholder="Name"><br><br>
+            <label for="editEmail">Email</label>
+            <br>
+            <input type="email" id="editEmail" required placeholder="Email">
+            <br>
+            <br>
+            <label for="address">Address</label> 
+            <br>
+            <input type="text" id="address" placeholder="Address" required>
+            <br><br>
+            <label for="editProductIds">Product IDs</label>
+            <br>
+            <input type="text" id="editProductIds" required placeholder="Product IDs">
+            <br>
+            <br>
+            <label for="editShipping">Shipping option</label><br>
+            <select name="editShipping" id="editShipping" required>
+              <option value="" disabled selected>Shipping</option>
+              <option value="express">Express Shipping</option>
+              <option value="economy">Economy Shipping</option>
+            </select>
+            <br><br>
+
+            <label for="userId">User ID</label>
+            <br>
+            <input type="text" id="userId" required placeholder="User ID">
+            <br>
+            <br>
+            <button type="button" id="submitEditOrder" onclick="if (typeof submitEditOrder === 'function') { submitEditOrder(); }">Submit</button>
+          </form>
+        </div>
+      </div>
+      
+      
+      
+    <script src="admin.js"></script>
+</body>
+</html>
