@@ -41,8 +41,9 @@ function renderCart(items) {
     varukorgenEL.innerHTML = '<ul id="itemsList"></ul> <p id="total"></p>'; //Lägger till ett nytt UL lista och ett p element för total pris
     const itemsListEL = document.getElementById("itemsList"); 
     for (let i = 0; i < items.length; i++) {
-        itemsListEL.innerHTML += `<li> <p style="word-wrap: break-word; max-width: 20ch;" id="baskettext"> ${items[i].title} - <br> <p> <strong>Price:   ${items[i].price} kr  </p> <br>
-        <button onclick="removeItem(${i})" id="remove">Remove</button> </li>` //Loopar genom arrayen och lägg till varje produkt till itemslist elementet, och lägger till ta bort knapp
+        itemsListEL.innerHTML += `<li> <br><br> <p style="word-wrap: break-word; max-width: 20ch;" id="baskettext"> ${items[i].title} <p> <strong>Price:  <br> ${items[i].price} kr  </p>
+        <button onclick="removeItem(${i})" id="remove">Remove</button> 
+        </li>` //Loopar genom arrayen och lägg till varje produkt till itemslist elementet, och lägger till ta bort knapp
     }
     const totalPrice = items.reduce((acc, item) => acc + parseFloat(item.price), 0); //Räkna ut totalpris för allt
     document.getElementById("total").innerHTML = `Total: ${totalPrice.toFixed(2)} kr &nbsp &nbsp &nbsp  ${myItems.length}`; //uppdatera totalpriset och antal items i varukorgen, konstiga tecken för mellanslap

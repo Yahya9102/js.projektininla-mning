@@ -7,43 +7,66 @@
 }
 
 
+
 body {
-
-
 
     background-color: rgb(209, 209, 234);
 }
 
-.heading {
+
+
+table {
+    
+    width: 80%;
+    
+    border-collapse: collapse;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    word-wrap: break-word; 
+    max-width: 60ch;
+  }
+  
+  th {
    
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-
-
-
-.card {
-
-    width: 23%;
-    box-shadow: 0 0 4px 3px orange;
-    text-align: center;
-    margin-bottom: 2em;
-    border-radius: 15px;
-}
-
-
-.title {
-    font-size: 1.3rem;
-
-}
-
-
-#th{
+    padding: 10px;
+    
+    
+    
+  }
+  
+  td {
+    padding: 10px;
+    border: 1px solid rgb(179, 159, 159);
+    
+  }
+  
+ #itemsList{
+    padding: 2px 5px;
+    list-style-type: none;
+ }
+  
+  button {
+    padding: 2px 5px;
+    background-color: rgb(75, 187, 212);
+    color: rgb(246, 249, 249);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin: 0 auto;
+    float: left;
+    
+  }
+  
+  #checkoutlink{
     display: flex;
+    position: absolute;
+    right: 20%;
+    top: 5%;
 }
+
+
 
 #varukorgen{
     display: flex;
@@ -57,76 +80,171 @@ body {
     position: absolute;
     right: 5%;
     top: 5%;
+    
 }
 
 #baskettext{
+    margin: 20px;
+    padding: 5px;
     display: flex;
-    position: relative;
-    font-size: 60%;
+    position: absolute;
+    font-size: 70%;
+    right: 1%;
+    list-style-type: none;
+    
 }
 
 fieldset{
     width: fit-content;
+    
+    
 }
 
-#checkoutlink{
-    display: flex;
-    position: absolute;
-    right: 20%;
-    top: 5%;
-}
 
 #shoppingimg{
+    display: flex;
+    position: absolute;
+    right: 2.2%;
+    top: 17%;
+    width: 4%;
+}
+
+#shoppingimg1{
     display: flex;
     position: absolute;
     right: 2.2%;
     top: 11%;
     width: 4%;
 }
-#shoppingimgI{
-    display: flex;
-    position: absolute;
-    right: 2.2%;
-    top: 8%;
-    width: 4%;
-}
 
-p {
-    word-wrap: break-word;
-     max-width: 40ch;
-   }
-@media screen and (max-width: 800px) {
+
+#editModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="text"], input[type="email"] {
+    width: 70%;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  select {
+    width: 70%;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  button[type="button"] {
+    width: 30%;
+    height: 40px;
+    font-size: 16px;
+    margin-top: 20px;
+    background-color: #888;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+
+
+
+  @media (max-width: 800px) {
+
+    table {
+    width: 60%;
    
+    }
+    
+    td{
+        font-size: 90%;
+        
+
+    }
+
+    th {
+    padding: 5px;
+    font-size: 60%;
+    word-wrap: break-word; 
+    max-width: 3ch;
+    
+    
+    }
+    
+
+    #checkoutlink{
+        display: flex;
+        position: absolute;
+        right: 40%;
+        top: 5%;
+    }
+    
+    
+   
+   
+    button {
+        padding: 5px 10px;
+
+    display: block;
+    font-size: 40%;
+    
+    }
+    
     #shoppingimg{
         display: flex;
         position: relative;
         left: 91%;
-        top: 2.6rem;
+        top:3.7rem;
         width: 9%;
     }
-    #shoppingimgI{
+    #shoppingimg1{
         display: flex;
         position: relative;
         left: 91%;
-        top: 1.5rem;
+        top:2.5rem;
         width: 9%;
     }
-    
-    #checkoutlink{
-        display: flex;
-        position: absolute;
-        right: 50%;
-        top: 5%;
-    }
-    
-    #baskettext{
-        display: flex;
-        position: relative;
-        font-size: 60%;
+
+
+
     }
 
-   p {
-    word-wrap: break-word;
-     max-width: 19ch;
-   }
-  }
+   
