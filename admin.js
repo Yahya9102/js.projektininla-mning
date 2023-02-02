@@ -1,3 +1,5 @@
+"use strict";
+
 const programEL = document.getElementById("program");
 const editModalEL = document.getElementById("editModal");
 const editNameEL = document.getElementById("editName");
@@ -111,7 +113,7 @@ function printOrders(data) {
       })
       .then(response => response.json())
       .then(() => {
-        // Refresh the orders table
+        // Refresha order table
         programEL.innerHTML = "";
         fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
         .then(result => result.json())
@@ -122,7 +124,7 @@ function printOrders(data) {
     form.style.display = "block";
   };
   
-// Submit edited order
+
 
 
 
@@ -158,9 +160,9 @@ function submitEditOrder() {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        // Close the edit modal
+        
         closeEditModal();
-        // Refresh the order list
+      
        
       })
       .catch(error => {
@@ -169,12 +171,12 @@ function submitEditOrder() {
   }
 
 
- // Close the edit modal
+ // Stäng edit mode
 function closeEditModal() {
 editModalEL.style.display = "none";
 }
 
-// Remove an order
+//Ta bort en order
 function removeOrder(userIds) {
     if (confirm("Are you sure you want to remove this order?")) {
       fetch(`https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user/${userIds}`, {
@@ -183,7 +185,7 @@ function removeOrder(userIds) {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        // Refresh the order list
+        // Refresha orderlist
         fetchOrders();
       })
       .catch(error => {
@@ -192,19 +194,19 @@ function removeOrder(userIds) {
     }
   }
   
-  // Close the edit modal
+
   function closeEditModal() {
     editModalEL.style.display = "none";
   }
   
-  // Refresh the order list
+   // Refresha orderlist
 function fetchOrders() {
     programEL.innerHTML = "";
 
     fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
       .then(result => result.json())
       .then(data => {
-        // Remove previous orders before printing new orders
+       
         programEL.innerHTML = "";
         printOrders(data);
       });
