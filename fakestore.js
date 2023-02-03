@@ -98,7 +98,7 @@ function renderCart(items) {
          </li>` 
     }
     const totalPrice = items.reduce((acc, item) => acc + parseFloat(item.price), 0); //Räkna ut totalpris för allt
-    document.getElementById("total").innerHTML = `Total: ${totalPrice.toFixed(2)} kr &nbsp &nbsp &nbsp  ${myItems.length}`; //uppdatera totalpriset och antal items i varukorgen, konstiga tecken för mellanslag
+    document.getElementById("total").innerHTML = `Total: ${totalPrice.toFixed(2)} kr &nbsp &nbsp &nbsp    ${myItems.length} <img src="shoppingcart.png" alt="" id="shoppingimg">`; //uppdatera totalpriset och antal items i varukorgen, konstiga tecken för mellanslag
     
 }
 const savedItems = JSON.parse(sessionStorage.getItem("myItems")); //hämtar items från sessionstorage
