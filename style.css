@@ -185,7 +185,7 @@ fieldset{
 
 
 
-  @media (max-width: 800px) {
+  @media (max-width: 600px) {
 
     table {
       width: 60%;
@@ -265,7 +265,6 @@ p{
 #program{
 width: fit-content;
 }
-
 
 
 #checkout{

@@ -1,6 +1,6 @@
 "use strict";
 
-const programEL = document.getElementById("program");
+const programEL = document.getElementById("programAdmin");
 const editModalEL = document.getElementById("editModal");
 const editNameEL = document.getElementById("editName");
 const editEmailEL = document.getElementById("editEmail");
