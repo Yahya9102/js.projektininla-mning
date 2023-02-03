@@ -18,7 +18,7 @@ body {
 table {
     
     width: 80%;
-    
+
     border-collapse: collapse;
     text-align: center;
     font-family: Arial, sans-serif;
@@ -45,20 +45,18 @@ table {
     list-style-type: none;
  }
   
-  button {
-    padding: 2px 5px;
-    background-color: rgb(75, 187, 212);
-    color: rgb(246, 249, 249);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    display: block;
-    margin: 0 auto;
-    float: left;
-    
-  }
+ button {
+  padding: 2px 5px;
+  background-color: rgb(75, 187, 212);
+  color: rgb(246, 249, 249);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+margin: 4px;
+ 
   
+}
   #checkoutlink{
     display: flex;
     position: absolute;
@@ -105,7 +103,7 @@ fieldset{
     display: flex;
     position: absolute;
     right: 2.2%;
-    top: 17%;
+    top: 37.5%;
     width: 4%;
 }
 
@@ -190,36 +188,44 @@ fieldset{
   @media (max-width: 800px) {
 
     table {
-    width: 60%;
-   
-    }
+      width: 60%;
+      margin: 0 auto;
+      text-align: left;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      position: absolute;
+      }
+      
     
     td{
         font-size: 90%;
-        
+        word-wrap: break-word;
+      max-width: 10ch;
 
     }
 
     th {
-    padding: 5px;
-    font-size: 60%;
-    word-wrap: break-word; 
-    max-width: 3ch;
     
+    font-size: 60%;
+    display: flex;
+    word-wrap: break-word; 
+    max-width: 25ch;
     
     }
     
+p{
+  word-wrap: break-word; 
+    max-width: 18ch;
+}
 
     #checkoutlink{
         display: flex;
         position: absolute;
-        right: 40%;
+        right: 50%;
         top: 5%;
     }
     
-    
-   
-   
+ 
     button {
         padding: 5px 10px;
 
@@ -231,20 +237,43 @@ fieldset{
     #shoppingimg{
         display: flex;
         position: relative;
-        left: 91%;
-        top:3.7rem;
-        width: 9%;
+        left: 90%;
+        top:10.5rem;
+        width: 10%;
     }
     #shoppingimg1{
         display: flex;
         position: relative;
-        left: 91%;
+        left: 90%;
         top:2.5rem;
-        width: 9%;
+        width: 10%;
     }
+  
+    #baskettext{
+      margin: 20px;
+      padding: 5px;
+      display: flex;
+      position: absolute;
+      font-size: 70%;
+      right: 1%;
+      list-style-type: none;
+      
+  } 
+
+
+  
+#program{
+width: fit-content;
+}
 
 
 
-    }
+#checkout{
+  display: flex;
+  position: absolute;
+  width: 37%;
+}
+
+  }
 
    

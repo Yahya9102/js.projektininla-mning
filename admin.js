@@ -9,14 +9,14 @@ const closeEditModalEL = document.getElementById("closeEditModal");
 const submitEditOrderEL = document.getElementById("submitEditOrder");
 
 
-// Fetch all orders from Firestore
+
 fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user")
   .then(result => result.json())
   .then(data => printOrders(data));
   
 
 
-// Print all orders to the table
+
 function printOrders(data) {
    
     const userIds = data.documents.map(document => document.name.split("/").pop());

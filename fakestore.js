@@ -59,8 +59,8 @@ function printJson(data, selectedCategory) {
 
     for (let i = 0; i < program.length; i++) { 
         programEL.innerHTML += `<table> 
-        <th id='th'> <strong> ${program[i].title } </strong> </th>
-        <tr> <td> <img src=" ${program[i].image }"width='45%' id="storeImage"></tr> </td>
+        <th> <strong> ${program[i].title } </strong> </th>
+        <tr> <td> <img src=" ${program[i].image }"width='55%' id="storeImage"></tr> </td>
         <tr> <td> <strong>Price:</strong> ${program[i].price } kr</tr> </td>
         <tr><td> <p><strong>Produktbeskrivning</strong> <br> ${program[i].description}</td> </tr>
         <tr> <td> <strong>Product id: </strong>  ${program[i].id}</td> </tr> 
@@ -93,7 +93,7 @@ function renderCart(items) {
     varukorgenEL.innerHTML = '<ul id="itemsList"></ul> <p id="total"></p>'; //Lägger till ett nytt UL lista och ett p element för total pris
     const itemsListEL = document.getElementById("itemsList"); 
     for (let i = 0; i < items.length; i++) {//Loopar genom arrayen och lägg till varje produkt till itemslist elementet, och lägger till ta bort knapp
-        itemsListEL.innerHTML += `<li> <br><br> <p style="word-wrap: break-word; max-width: 20ch;" id="baskettext"> ${items[i].title} <p> <strong>Price:  <br> ${items[i].price} kr  </p>
+        itemsListEL.innerHTML += `<li> <br><br> <p style="word-wrap: break-word; max-width: 20ch;" id="baskettext"> ${items[i].title} <p id ="priceText"> <strong>Price:  <br> ${items[i].price} kr  </p>
         <button onclick="removeItem(${i})" id="remove">Remove</button> 
          </li>` 
     }
