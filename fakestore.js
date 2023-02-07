@@ -13,18 +13,7 @@ const shippingEL = document.getElementById("shipping");
 
 const sendbuyersEL = document.getElementById("addbuyers");
 
-
-
-
 let myItems = []; // lagra id´n här
-
-
-
-
-
-
-
-
 
 
 fetch("https://fakestoreapi.com/products")
@@ -63,7 +52,8 @@ function printJson(data, selectedCategory) {
         <tr> <td> <img src=" ${program[i].image }"width='55%' id="storeImage"></tr> </td>
         <tr> <td> <strong>Price:</strong> ${program[i].price } kr</tr> </td>
         <tr><td> <p><strong>Produktbeskrivning</strong> <br> ${program[i].description}</td> </tr>
-        <tr> <td> <strong>Product id: </strong>  ${program[i].id}</td> </tr> 
+        <tr> <td> <strong>Product id: </strong>  ${program[i].id}</td> </tr>
+        <tr> <td> <strong>Product Rating: </strong>  ${program[i].rating.rate}</td> </tr> 
         <tr> <td> <strong>Category <br> </strong> ${program[i].category} </td>  </tr> 
         <tr><td> <button  onclick ="addItems('${program[i].id}', '${program[i].title.replace("'","")}', '${program[i].price}')">Add to basket</button> </td></tr> <br><br> </table>`
     }
