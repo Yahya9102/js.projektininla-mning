@@ -54,6 +54,7 @@ function printJson(data, selectedCategory) {
         <tr><td> <p><strong>Produktbeskrivning</strong> <br> ${program[i].description}</td> </tr>
         <tr> <td> <strong>Product id: </strong>  ${program[i].id}</td> </tr>
         <tr> <td> <strong>Product Rating: </strong>  ${program[i].rating.rate}</td> </tr> 
+        <tr> <td> <strong>Product Count: </strong>  ${program[i].rating.count}</td> </tr> 
         <tr> <td> <strong>Category <br> </strong> ${program[i].category} </td>  </tr> 
         <tr><td> <button  onclick ="addItems('${program[i].id}', '${program[i].title.replace("'","")}', '${program[i].price}')">Add to basket</button> </td></tr> <br><br> </table>`
     }
