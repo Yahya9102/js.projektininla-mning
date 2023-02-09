@@ -105,6 +105,8 @@ function addBuyer(event) {
     }
 
     sessionStorage.removeItem("myItems");
+    
+
 
     fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user", {
         method: "POST",

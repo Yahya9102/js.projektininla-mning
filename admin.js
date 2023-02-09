@@ -68,6 +68,7 @@ function printOrders(data) {
 
 
   function editOrder(userId, name, email, productIds, address, shipping) {
+    
 
     const nameInput = document.getElementById("editName");
     const emailInput = document.getElementById("editEmail");
@@ -95,6 +96,14 @@ function printOrders(data) {
       const updatedAddress = addressInput.value;
       const updatedShipping = shippingInput.value;
       const updatedProductIds = productIdsInput.value;
+
+
+      if(!updatedName || !updatedEmail || !updatedAddress || !updatedShipping) {
+        console.log("Name, Email, Address or Shipping is missing");
+        
+        return;
+    }
+  
   
       fetch(`https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user/${updatedUserId}`, {
         method: "PATCH",
@@ -130,7 +139,7 @@ function printOrders(data) {
 
 
 function submitEditOrder() {
-    console.log("hello")
+    
 
     const updatedUserId = userIdInput.value;  
     const name = editNameEL.value;
@@ -139,6 +148,13 @@ function submitEditOrder() {
     const shippingOption = shippingEL.value;
     const address = addressInput.value;
     
+  
+    if(!name || !email || !address || !shippingOption) {
+      console.log("Name, Email, Address or Shipping is missing");
+      
+      return;
+  }
+
   
   
     fetch(`https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user/${updatedUserId}`, {
@@ -162,6 +178,7 @@ function submitEditOrder() {
         console.log(data);
         
         closeEditModal();
+        location.reload();
       
        
       })
