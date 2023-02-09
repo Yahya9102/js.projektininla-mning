@@ -16,21 +16,22 @@ fetch("https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(
   
 
 
-
-function printOrders(data) {
-   
+  function printOrders(data) {
     const userIds = data.documents.map(document => document.name.split("/").pop());
-    console.log(userIds)
-
+    //     console.log(userIds)
     for (let i = 0; i < data.documents.length; i++) {
       const order = data.documents[i];
       const name = order.fields.name.stringValue;
       const shipping = order.fields.shipping && order.fields.shipping.stringValue;
       const address = order.fields.address && order.fields.address.stringValue;
       const email = order.fields.email.stringValue;
-      const productIds = order.fields.productids.arrayValue.values
-        .map(value => value.stringValue)
-        .join(", ");
+      let productIds = "";
+      if (order.fields.productids && order.fields.productids.arrayValue) {
+        const values = order.fields.productids.arrayValue.values;
+        if (values && values.length) {
+          productIds = values.map(value => value.stringValue).join(", ");
+        }
+      }
   
       programEL.innerHTML += `
         <tr><td><p> <strong> Name: </strong> ${name} </p></td></tr>
@@ -46,10 +47,6 @@ function printOrders(data) {
   
 
 
-
-
-
- 
 
 
 
@@ -155,7 +152,6 @@ function submitEditOrder() {
       return;
   }
 
-  
   
     fetch(`https://firestore.googleapis.com/v1/projects/js-project-e8eb4/databases/(default)/documents/user/${updatedUserId}`, {
       method: 'PATCH',
